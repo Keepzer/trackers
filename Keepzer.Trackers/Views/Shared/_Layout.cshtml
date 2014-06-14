@@ -1,0 +1,144 @@
+﻿@{
+	ViewBag.Layout = "_LayoutHome.cshtml";
+	if (String.IsNullOrEmpty(ViewBag.Title))
+	{
+		ViewBag.Title = "Keepzer Trackers";
+	}
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" href="@Url.Content("~/Content/img/favicon.png")" type="image/x-icon" />
+	<title>Keepzer Trackers - @ViewBag.Title</title>
+	<link rel="apple-touch-icon" href="@Url.Content("~/apple-touch-icon.png")">
+	<link rel="apple-touch-icon" sizes="60x60" href="@Url.Content("~/apple-touch-icon.png")">
+	<link rel="apple-touch-icon" sizes="76x76" href="@Url.Content("~/apple-touch-icon-76x76.png")">
+	<link rel="apple-touch-icon" sizes="120x120" href="@Url.Content("~/apple-touch-icon-120x120.png")">
+	<link rel="apple-touch-icon" sizes="152x152" href="@Url.Content("~/apple-touch-icon-152x152.png")">
+	<link href="@Url.Content("~/Content/css/global.css")" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		@@-ms-viewport {
+			width: auto !important;
+		}
+		html {
+			-webkit-text-size-adjust: 100%;
+			-ms-text-size-adjust: 100%;
+			-ms-overflow-style: -ms-autohiding-scrollbar; /*auto | none | scrollbar | -ms-autohiding-scrollbar*/
+		}
+	</style>
+	@RenderSection("Styles", false)
+
+	<script src="@Url.Content("~/Scripts/require.js")"></script>
+	@RenderSection("Scripts", false)
+</head>
+
+<body style="padding-top:57px;">
+	<!-- Other -->
+	@RenderSection("Templates", false)
+
+	<!-- Grid Section -->
+	<!-- Header and Nav -->
+
+	<div class="top-bar-outline fixed">
+		<nav id="top-bar" class="top-bar">
+			<ul id="top-bar-title" class="title-area">
+				<!-- Title Area -->
+				<li>
+					<a href="@Url.Action("Index", "Home")">
+						<img alt="Keepzer Logo" class="logo-not-small" src="@Url.Content("~/Content/images/logo-windows.png")" />
+					</a>
+				</li>
+			</ul>
+			<section class="top-bar-section">
+				<!-- Right nav section -->
+				@RenderSection("Menu", false)
+				<div class="clearfix"></div>
+			</section>
+		</nav>
+	</div>
+
+	<div id="content">
+		@RenderBody()
+	</div>
+
+
+	<!-- End Grid Section -->
+
+	<!-- End Menu Item Popouts -->
+	<!-- Footer -->
+	<footer class="row">
+		<div class="large-12 columns">
+			<div class="row">
+				<div class="large-9 columns">
+					<ul class="inline-list left footer-pad">
+						@RenderSection("Footer", false)
+					</ul>
+				</div>
+				<div class="large-3 columns footer-pad">
+					<ul class="inline-list right">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	@{
+	//Html.Partial("_RequireConfig", RenderSection("ReadyScripts", false))	
+	}
+	@{
+		// if the main script has a "full" version which is already optimized then load this one here
+		Boolean isDebug = (HttpContext.Current.IsDebuggingEnabled && Request["debug"] != "0") || Request["debug"] == "1";
+	}
+	<!--[if lte IE 8]>
+		<script type="text/javascript">
+			var useJquery1 = true;
+		</script>
+	<![endif]-->
+	<script type="text/javascript">
+		var min = "@(isDebug ? "" : ".min")";
+		var config = {
+			"baseUrl": "@Url.Action(String.Empty, String.Empty, new { Area = "" })Scripts",
+			"paths": {
+				"jquery": [
+					(typeof useJquery1 === "undefined" ? "//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery" + min : "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery" + min),
+					(typeof useJquery1 === "undefined" ? "jquery2" + min : "jquery.min")
+				],
+				"modernizr": "modernizr.custom"
+			},
+			"shim": {
+				"jquery": {
+					"exports": "$"
+				},
+				"modernizr": {
+					"deps": ["jquery"],
+					"exports": "window.Modernizr"
+				},
+				"foundation/js/foundation.min": {
+					"deps": ["jquery", "modernizr"],
+					"exports": "$.fn.foundation"
+				},
+				"foundation/js/foundation": {
+					"deps": ["jquery", "modernizr"],
+					"exports": "$.fn.foundation"
+				}
+			}
+		};
+		require.config(config);
+
+		// require the main script for the page here if defined so it is loaded before other files and dependencies can be optimized
+		var mainScript = "@(ViewBag.MainScript as String ?? "")";
+		if (mainScript)
+			require([mainScript]);
+
+		require(["jquery", "foundation/js/@(Html.Raw(isDebug ? "foundation" : "foundation.min"))", "keepzer", "keepzer.app"], function ($) {
+			$(document).foundation();
+			$(document).ready(function () {
+				@RenderSection("ReadyScripts", false)
+			});
+		});
+	</script>
+
+</body>
+</html>

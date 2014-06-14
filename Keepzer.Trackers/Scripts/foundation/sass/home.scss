@@ -1,0 +1,218 @@
+@import "app";
+@import "signup";
+
+.features-background {
+	padding-top: 87px !important; 
+    padding-bottom: 43px !important;
+	background-color: set-lightness($primary-color, 23%);
+	color: #fff;
+	@include text-shadow( rgba(0,0,0,.27) 0 1px);
+	@include background-image(
+		radial-gradient(top left, set-lightness($primary-color, 64%) 1%, rgba(0,0,0,0) 74%)
+		);
+	border-top: 1px solid set-lightness($primary-color, 17%);
+	border-bottom: 1px solid set-lightness($primary-color, 17%);
+	h3 {	color: #fff;
+			@include text-shadow( rgba(0,0,0,.27) 0 1px);
+	}
+}
+
+.footer-pad { margin-top: 12px; }
+
+
+
+// Jumbotron
+.jumbotron {
+	background-color: set-lightness($primary-color, 23%);
+	@include background-image(
+		radial-gradient(bottom right, set-lightness($primary-color, 64%) 1%, rgba(0,0,0,0) 74%)
+		);
+	padding: emCalc(75px) emCalc(0px) emCalc(50px) emCalc(0px);
+	max-width: 100%;
+	color: #fff;
+	border-bottom: 1px solid set-lightness($primary-color, 17%);
+	.home_content {
+		#signup_button { 
+			background-color: $complementary-color; 
+			margin-top: 12px; 
+			border-color: darken($complementary-color, 15%); 
+			@include bs(0.17);
+			@extend .large;
+			width: 100%;
+			&:active{ @include box-shadow(inset rgba(0,0,0,.27) 0 1px 3px); }
+		}
+		.slogan { 
+			color: #fff; 
+			@include text-shadow(rgba(0,0,0,.27) 0 1px);
+			margin-top: -0.5em;
+		}
+		h1.slogan {
+			font-size: emCalc(61px); 
+			line-height: 66px;
+			margin-bottom: 7px;
+			letter-spacing: -3px;
+
+			@extend .text-center;
+
+			@media screen and (max-width: 1006px) {
+				@include text-center;
+				font-size: emCalc(40px);
+			}
+		}
+		p.slogan {
+			@include text-shadow(rgba(0,0,0,.27) 0 1px);
+			@extend .text-right;
+
+			margin-top: 0px;
+			font-size: 20px;
+		}
+	}
+}
+
+// Landing Page Row
+.landing-page-row {
+	max-width: 100%;
+	border-top: 1px solid rgba(0,0,0,0.17);
+	border-bottom: 1px solid rgba(0,0,0,0.17);
+	@include box-shadow(inset white 0 1px 0, rgba(0,0,0,0.07) 0 1px 3px);
+ }
+
+ .main-clyde {
+	margin-top:-50px;
+ }
+
+ // Feature Icons
+
+.circle {
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  position: relative;
+  z-index: 2;
+  background: $complementary-color;
+  border:1px solid darken($complementary-color,15%);
+  @include box-shadow(rgba(0,0,0,0.17) 0 0 3px, inset 0px 1px 1px white, 0 1px 3px rgba(0,0,0,0.07));
+  @include background-image(linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.10)), radial-gradient(rgba(255,255,255,.10),rgba(0,0,0,0)));
+}
+
+.feature-icon {
+  position: absolute;
+  z-index: 3;
+  margin-top: 40px * 1.5;
+}
+
+.storage-width { width: 52px; }
+.storage-icon {
+  background: $icons-image 13.208% 14.183%;
+  height: 37px;
+}
+.encryption-width { width: 28px; }
+.encryption-icon {
+  background: $icons-image 18.462% 41.687%;
+  width: 28px;
+  height: 38px;
+}
+.visualisation-width { width: 32px; }
+.visualisation-icon {
+  background: $icons-image 15.873% 61.017%;
+  width: 32px;
+  height: 40px;
+}
+
+.import-width { 
+	width: 32px;
+	margin-left: 84px;
+}
+.import-icon {
+	background: $icons-image -10px -319px;
+	width: 51px;
+	height: 40px;
+}
+.share-width { width: 31px; }
+.share-icon {
+  background: $icons-image 16.535% 92.548%;
+  width: 31px;
+  height: 37px;
+}
+
+.alert-row {
+	@extend .row;
+
+	max-width: 100%;
+	background-color: desaturate($alert-color, 25%);
+	border-top: 1px solid darken($alert-color, 10%);
+
+	div.home-safety-block {
+		@include text-shadow(rgba(0,0,0,.17) 0 1px);
+
+		@extend .large-12;
+		@extend .columns;
+
+		color: #fff;
+	}
+	h1 {
+		@extend .text-center;
+
+		color: #fff;
+	}
+}
+
+/*  ========================================
+  	Panels
+  	======================================== */
+
+.panel.callout { @include box-shadow(rgba(0,0,0,.17) 0 1px 3px); }
+
+.panel.callout.complement {
+	background: $complementary-color;
+	border-color: darken($complementary-color, 10%);
+}
+
+.panel.callout.primary {
+	background: $primary-color;
+	border-color: darken($primary-color, 10%);
+}
+
+.panel.callout.alert {
+	background: $alert-color;
+	border-color: darken($alert-color, 10%);
+}
+
+.panel.callout.success {
+	background: $success-color;
+	border-color: darken($success-color, 10%);
+}
+
+.panel.callout, .panel.callout p { color: #fff; }
+
+.panel.callout.small {
+	padding-top: 7.5px;
+	padding-bottom: 7.5px;
+}
+
+/*  ========================================
+  	Security Architecture Modal
+  	======================================== */
+
+#securityArchitectureModal {
+	width: 404px;
+	background: #E8865F;
+
+	@media screen and (max-width: 999px) {
+		background: url('/Content/Images/security-architecture-image.JPG') no-repeat;
+		background-size: 100% 100%;
+	}
+}
+
+.security-modal-overlay {
+	@media screen and (max-width: 999px) { visibility: hidden; }
+
+	position: absolute;
+	z-index: 499;
+	margin-top: -1.875em !important;
+	margin-left: -1.875em;
+}
+
+.close-reveal-modal { z-index: 500; }
+
+.sm-hidden { @media screen and (max-width: 999px) { visibility: hidden; } }

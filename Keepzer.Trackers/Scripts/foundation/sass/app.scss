@@ -1,0 +1,90 @@
+// Global Foundation Settings
+@import "settings";
+@import "compass/css3";
+
+
+// Comment out this import if you are customizing your imports below
+@import "foundation";
+
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+// @import "foundation/components/global"; // *always required
+// @import "global"; // *always required
+// @import "grid";
+// @import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+// @import "foundation/components/type";
+// @import "buttons";
+// @import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+// @import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+// @import "panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+// @import "foundation/components/tables";
+// @import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
+/* ==========================================================================
+   Imports
+   ========================================================================== */
+
+@import "foundation-overrides";
+@import "type";
+@import "top-bar";
+@import "buttons";
+@import "cards";
+// @import "section";
+@import "app-index";
+@import "tables";
+@import "forms";
+@import "dropdown";
+@import "add-data";
+@import "reveal";
+@import "itemgrid";
+@import "developers";
+@import "visualizer";
+@import "uservoice";
+@import "footer";
+@import "add-data-modal";
+@import "questions-modal";
+@import "quick-data";
+@import "datatype-list";
+@import "item-form";
+@import "FAQDropdown";
+@import "pebble-config";
+@import "pebble-landing";
+@import "tooltips";
+@import "box-model";
+@import "text";
+@import "preloader";
+@import "single-line-form";
+
+/* 
+   Utilities
+   ========================================================================== */
+
+@import "utilities";
+@import "utils-colors";
+@import "utils-align";
+@import "utils-textAlign";
+
