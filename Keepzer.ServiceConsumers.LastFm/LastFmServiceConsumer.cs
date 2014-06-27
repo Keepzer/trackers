@@ -84,9 +84,8 @@ namespace Keepzer.ServiceConsumers.LastFm
 			       {
 				       AuthorizationEndpoint = "https://api.moves-app.com/oauth/v1/authorize",
 				       TokenEndpoint = "https://api.moves-app.com/oauth/v1/access_token",
-				       ClientId = "",
-				       ClientSecret = "",
-					   Scopes = new[] { "activity", "location" }
+					   ClientId = "93f05b8732f098e3f1ad06933491f4e4",
+					   ClientSecret = "7aed2f178c5b9a9274fd85afe621190e"
 			       };
 		}
 

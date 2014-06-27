@@ -1,0 +1,8 @@
+{
+  "name": "KeepzerTrackers",
+  "dependencies": {
+		"modernizr": ">=2.7.1",
+    "foundation": ">=5.2.2",
+    "jquery": ">=2.0.3"
+  }
+}

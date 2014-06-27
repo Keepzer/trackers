@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Keepzer.Trackers.Logic;
 
 namespace Keepzer.Trackers
 {
@@ -11,6 +12,11 @@ namespace Keepzer.Trackers
 
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+
+			// load consumers
+			ServiceManager serviceManager = new ServiceManager();
+			serviceManager.FindServices();
 		}
 	}
 }

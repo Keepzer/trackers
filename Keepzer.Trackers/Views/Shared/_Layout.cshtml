@@ -17,11 +17,13 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="@Url.Content("~/apple-touch-icon-76x76.png")">
 	<link rel="apple-touch-icon" sizes="120x120" href="@Url.Content("~/apple-touch-icon-120x120.png")">
 	<link rel="apple-touch-icon" sizes="152x152" href="@Url.Content("~/apple-touch-icon-152x152.png")">
-	<link href="@Url.Content("~/Content/css/global.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Scripts/foundation/css/normalize.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Scripts/foundation/css/foundation.css")" rel="stylesheet" type="text/css" />
 	<style type="text/css">
 		@@-ms-viewport {
 			width: auto !important;
 		}
+
 		html {
 			-webkit-text-size-adjust: 100%;
 			-ms-text-size-adjust: 100%;
@@ -47,7 +49,7 @@
 				<!-- Title Area -->
 				<li>
 					<a href="@Url.Action("Index", "Home")">
-						<img alt="Keepzer Logo" class="logo-not-small" src="@Url.Content("~/Content/images/logo-windows.png")" />
+						<img alt="Keepzer Logo" class="logo-not-small" src="@Url.Content("~/Content/img/logo-windows.png")" />
 					</a>
 				</li>
 			</ul>
@@ -65,7 +67,6 @@
 
 
 	<!-- End Grid Section -->
-
 	<!-- End Menu Item Popouts -->
 	<!-- Footer -->
 	<footer class="row">
@@ -77,15 +78,14 @@
 					</ul>
 				</div>
 				<div class="large-3 columns footer-pad">
-					<ul class="inline-list right">
-					</ul>
+					<ul class="inline-list right"></ul>
 				</div>
 			</div>
 		</div>
 	</footer>
 
 	@{
-	//Html.Partial("_RequireConfig", RenderSection("ReadyScripts", false))	
+	//Html.Partial("_RequireConfig", RenderSection("ReadyScripts", false))
 	}
 	@{
 		// if the main script has a "full" version which is already optimized then load this one here
@@ -111,6 +111,9 @@
 				"jquery": {
 					"exports": "$"
 				},
+				/*"jquery.unobtrusive-ajax": {
+					"exports": "$"
+				},*/
 				"modernizr": {
 					"deps": ["jquery"],
 					"exports": "window.Modernizr"
@@ -132,7 +135,7 @@
 		if (mainScript)
 			require([mainScript]);
 
-		require(["jquery", "foundation/js/@(Html.Raw(isDebug ? "foundation" : "foundation.min"))", "keepzer", "keepzer.app"], function ($) {
+		require(["jquery", "foundation/js/@(Html.Raw(isDebug ? "foundation" : "foundation.min"))", "jquery.unobtrusive-ajax"], function ($) {
 			$(document).foundation();
 			$(document).ready(function () {
 				@RenderSection("ReadyScripts", false)

@@ -41,6 +41,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Keepzer.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5325badeb4ae94a7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Keepzer.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -118,9 +126,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ServiceManager.cs" />
+    <Compile Include="Logic\SettingsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +145,8 @@
     <Content Include="Content\img\logo-windows.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\foundation\css\foundation.css" />
+    <Content Include="Scripts\foundation\css\normalize.css" />
     <Content Include="Scripts\foundation\js\foundation.js" />
     <Content Include="Scripts\foundation\js\foundation.min.js" />
     <Content Include="Scripts\foundation\js\foundation\foundation.abide.js" />
@@ -157,6 +170,8 @@
     <Content Include="Scripts\foundation\js\vendor\jquery.js" />
     <Content Include="Scripts\foundation\js\vendor\zepto.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery2.js" />
     <Content Include="Scripts\jquery2.min.js" />
     <Content Include="Scripts\modernizr.custom.js" />
@@ -195,6 +210,12 @@
     <Content Include="Scripts\foundation\sass\home.scss" />
     <Content Include="Scripts\foundation\sass\_foundation-helpers.scss" />
     <Content Include="Scripts\foundation\sass\_foundation-overrides.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Keepzer.ServiceConsumers.LastFm\Keepzer.ServiceConsumers.LastFm.csproj">
+      <Project>{acfbce3d-c62d-4c1c-bc81-4b0a1a791e80}</Project>
+      <Name>Keepzer.ServiceConsumers.LastFm</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
